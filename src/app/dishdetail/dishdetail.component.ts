@@ -1,21 +1,33 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { DishService } from '../services/dish.service';
 import { Dish } from '../shared/dish';
 
 @Component({
-  selector: 'app-dishdetail',
-  templateUrl: './dishdetail.component.html',
-  styleUrls: ['./dishdetail.component.scss']
+	selector: 'app-dishdetail',
+	templateUrl: './dishdetail.component.html',
+	styleUrls: ['./dishdetail.component.scss']
 })
 
 
 
 export class DishdetailComponent implements OnInit {
-  @Input()
-  dish: Dish;
 
-  constructor() { }
+	dish: Dish;
 
-  ngOnInit() {
-  }
+	constructor(
+		private dishService: DishService,
+		private route: ActivatedRoute,
+		private location: Location) { }
+
+	ngOnInit() {
+		const id = +this.route.snapshot.params.id; // + converts 'id' to number;
+		this.dish = this.dishService.getDish(id);
+	}
+
+	goBack(): void {
+		this.location.back();
+	}
 
 }

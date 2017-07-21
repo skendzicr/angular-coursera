@@ -6,10 +6,27 @@
       <div fxFlex="40" fxFlexOffset="20px">
         <h4>Links</h4>
         <md-list>
-          <md-list-item><a md-button>Home</a></md-list-item>
-          <md-list-item><a md-button>About</a></md-list-item>
-          <md-list-item><a md-button>Menu</a></md-list-item>
-          <md-list-item><a md-button>Contact</a></md-list-item>
+          <md-list-item>
+            <a md-button routerLink="/home">
+              <span class="fa fa-home fa-lg"></span> Home
+            </a>
+
+          </md-list-item>
+          <md-list-item>
+            <a md-button>
+              <span class="fa fa-info fa-lg"></span> About
+            </a>
+          </md-list-item>
+          <md-list-item>
+            <a md-button routerLink="/menu">
+              <span class="fa fa-list fa-lg"></span> Menu
+            </a>
+          </md-list-item>
+          <md-list-item>
+            <a md-button routerLink="/contactus">
+              <span class="fa fa-address-card fa-lg"></span> Contact
+            </a>
+          </md-list-item>
         </md-list>
       </div>
       <div fxFlex="50">
